@@ -40,7 +40,7 @@ namespace SpecFlowFramework.Framework
         {
             Locators = new Dictionary<string, Locator>();
 
-            var workbookDirectory = @"c:\users\jswei_000\documents\visual studio 2013\Projects\SpecFlowFramework\SpecFlowFramework\Locators\";
+            var workbookDirectory = @"C:\Users\jswei_000\Source\Repos\SpecFlowFramework\SpecFlowFramework\Locators";
             string[] filePaths = Directory.GetFiles(workbookDirectory);
 
             foreach (var file in filePaths)
