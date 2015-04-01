@@ -32,8 +32,8 @@ namespace SpecFlowFramework.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Cart Total", "As a shopper\nI want to see my cart total on every screen\nSo I don\'t have to leave" +
-                    " my current page to verify it\'s contents", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Cart Total", "As a shopper\r\nI want to see my cart total on every screen\r\nSo I don\'t have to lea" +
+                    "ve my current page to verify it\'s contents", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

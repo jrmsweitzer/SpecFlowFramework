@@ -4,6 +4,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowFramework.Framework
@@ -85,7 +86,7 @@ namespace SpecFlowFramework.Framework
 
             var text = GetText(by);
 
-            variableDictionary.Add(variableName, text);
+            ScenarioContext.Current.Add(variableName, text);
         }
 
         [Then(@"My url should match ""(.*)""")]
@@ -139,12 +140,12 @@ namespace SpecFlowFramework.Framework
         [Then(@"Variable (.*) should be ""(.*)""")]
         public void VariableShouldBe(string variableName, string expectedValue)
         {
-            if (!variableDictionary.ContainsKey(variableName))
+            if (!ScenarioContext.Current.ContainsKey(variableName))
             {
                 Assert.Fail("Variable {0} does not exist!");
             }
 
-            var actualValue = variableDictionary[variableName];
+            var actualValue = ScenarioContext.Current[variableName];
 
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -154,10 +155,12 @@ namespace SpecFlowFramework.Framework
         {
             By by = ExcelReader.GetByForLabel(locatorLabel);
 
-            if (variableDictionary.ContainsKey(expectedValue))
+            if (ScenarioContext.Current.ContainsKey(expectedValue))
             {
-                expectedValue = variableDictionary[expectedValue];
+                expectedValue = ScenarioContext.Current[expectedValue].ToString();
             }
+
+            Thread.Sleep(3000);
 
             var actualValue = Find(by).Text;
 

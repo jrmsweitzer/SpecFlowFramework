@@ -8,8 +8,6 @@ namespace SpecFlowFramework.Framework
     [Binding]
     public class ScenarioRunner : SpecFlowCommonMethods
     {
-        protected Dictionary<string, string> variableDictionary = new Dictionary<string, string>();
-
         [BeforeFeature()]
         public static void Setup()
         {

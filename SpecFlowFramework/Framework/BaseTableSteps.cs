@@ -20,7 +20,7 @@ namespace SpecFlowFramework.Framework
             }
 
             By by = ExcelReader.GetByForLabel(locatorLabel);
-            var variableValue = variableDictionary[variableNameToSearch];
+            var variableValue = ScenarioContext.Current[variableNameToSearch];
 
             var numRows = by.FindElement(Driver).FindElements(By.XPath("//tbody/tr")).Count;
             var magicRow = -1;
@@ -43,7 +43,7 @@ namespace SpecFlowFramework.Framework
             {
                 Assert.Fail(string.Format("{0} does not exist in table {1}", variableNameToSearch, locatorLabel));
             }
-            variableDictionary.Add(nameForNewVariable, magicRow.ToString());
+            ScenarioContext.Current.Add(nameForNewVariable, magicRow.ToString());
         }
 
         [Then(@"The text in table (.*) in row (.*) column (.*) should be ""(.*)""")]
@@ -81,7 +81,7 @@ namespace SpecFlowFramework.Framework
         {
             By by = ExcelReader.GetByForLabel(locatorLabel);
 
-            var variableValue = variableDictionary[variableName];
+            var variableValue = ScenarioContext.Current[variableName].ToString();
             if (string.IsNullOrEmpty(variableValue))
             {
                 Assert.Fail(string.Format("Variable {0} has not been saved!"));
@@ -117,16 +117,16 @@ namespace SpecFlowFramework.Framework
 
             if (rowInt == 0)
             {
-                row = variableDictionary[row];
+                row = ScenarioContext.Current[row].ToString();
             }
             if (columnInt == 0)
             {
-                column = variableDictionary[column];
+                column = ScenarioContext.Current[column].ToString();
             }
 
-            if (variableDictionary.ContainsKey(expectedText))
+            if (ScenarioContext.Current.ContainsKey(expectedText))
             {
-                expectedText = variableDictionary[expectedText];
+                expectedText = ScenarioContext.Current[expectedText].ToString();
             }
 
             var actualText = by.FindElement(Driver).FindElement(By.XPath(string.Format("//tbody/tr[{0}]/td[{1}]", row, column))).Text;
