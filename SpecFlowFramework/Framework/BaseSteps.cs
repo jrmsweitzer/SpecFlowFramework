@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -31,26 +32,7 @@ namespace SpecFlowFramework.Framework
         {
             By by = ExcelReader.GetByForLabel(locatorLabel);
 
-            var select = new SelectElement(Find(by));
-            if (!select.Equals(null))
-            {
-                try
-                {
-                    select.SelectByText(optionText);
-                }
-                catch
-                {
-                    var errMsg = String.Format(
-                        "PageObjectBase: There is no option '{0}' in {1}.",
-                        optionText, by);
-                    throw new Exception(errMsg);
-                }
-            }
-            else
-            {
-                string errMsg = "Cannot find element " + by.ToString();
-                throw new NoSuchElementException(errMsg);
-            }
+            Select(by, optionText);
         }
 
         [When(@"I click link with exact text ""(.*)""")]
@@ -79,14 +61,22 @@ namespace SpecFlowFramework.Framework
             Click(by);
         }
 
-        [When(@"I store text of (.*) into variable (.*)")]
-        public void IStoreTextOfIntoVariable(string locatorLabel, string variableName)
+        [When(@"I store text of (.*) into (.*)")]
+        public void IStoreTextOfInto(string locatorLabel, string variableName)
         {
             By by = ExcelReader.GetByForLabel(locatorLabel);
 
             var text = GetText(by);
 
             ScenarioContext.Current.Add(variableName, text);
+        }
+
+        [When(@"Submit (.*)")]
+        public void Submit(string locatorLabel)
+        {
+            By by = ExcelReader.GetByForLabel(locatorLabel);
+
+            Find(by).Submit();
         }
 
         [Then(@"My url should match ""(.*)""")]
@@ -162,7 +152,7 @@ namespace SpecFlowFramework.Framework
 
             Thread.Sleep(3000);
 
-            var actualValue = Find(by).Text;
+            var actualValue = GetInnerHtml(by);
 
             Assert.AreEqual(expectedValue, actualValue);
         }

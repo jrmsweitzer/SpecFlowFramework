@@ -10,10 +10,10 @@ namespace SpecFlowFramework.Framework
     public class BaseTableSteps : ScenarioRunner
     {
 
-        [When(@"I store row number containing variable (.*) from Table (.*) into variable (.*)")]
-        public void IStoreRowNumberContainingVariableFromTableIntoVariable(string variableNameToSearch, string locatorLabel, string nameForNewVariable)
+        [When(@"I store row number containing (.*) from Table (.*) into (.*)")]
+        public void IStoreRowNumberContainingFromTableInto(string variableNameToSearch, string locatorLabel, string nameForNewVariable)
         {
-            var variableExists = VariableShouldExistInTable(variableNameToSearch, locatorLabel);
+            var variableExists = ShouldExistInTable(variableNameToSearch, locatorLabel);
             if (!variableExists)
             {
                 Assert.Fail(string.Format("{0} does not exist in table {1}", variableNameToSearch, locatorLabel));
@@ -76,15 +76,14 @@ namespace SpecFlowFramework.Framework
             Assert.AreEqual(expectedColumnCount, actualColumnCount);
         }
 
-        [Then(@"Variable (.*) should exist in Table (.*)")]
-        public bool VariableShouldExistInTable(string variableName, string locatorLabel)
+        [Then(@"(.*) should exist in Table (.*)")]
+        public bool ShouldExistInTable(string variable, string locatorLabel)
         {
             By by = ExcelReader.GetByForLabel(locatorLabel);
 
-            var variableValue = ScenarioContext.Current[variableName].ToString();
-            if (string.IsNullOrEmpty(variableValue))
+            if (ScenarioContext.Current.ContainsKey(variable))
             {
-                Assert.Fail(string.Format("Variable {0} has not been saved!"));
+                variable = ScenarioContext.Current[variable].ToString();
             }
 
             var textExists = false;
@@ -92,7 +91,7 @@ namespace SpecFlowFramework.Framework
 
             foreach (var cell in cells)
             {
-                if (cell.Text.Equals(variableValue))
+                if (cell.Text.Equals(variable))
                 {
                     textExists = true;
                     break;

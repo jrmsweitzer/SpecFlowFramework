@@ -27,6 +27,8 @@ namespace SpecFlowFramework.Framework
                 case "classname":
                 case "class_name":
                     return By.ClassName(locator.LocatorString);
+                case "name":
+                    return By.Name(locator.LocatorString);
                 case "tagname":
                     return By.TagName(locator.LocatorString);
                 case "xpath":

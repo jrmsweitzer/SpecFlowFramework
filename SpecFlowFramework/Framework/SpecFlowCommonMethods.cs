@@ -55,6 +55,35 @@ namespace SpecFlowFramework.Framework
             return false;
         }
 
+        protected void Select(By by, string optionText)
+        {
+            var select = new SelectElement(Find(by));
+            if (!select.Equals(null))
+            {
+                try
+                {
+                    select.SelectByText(optionText);
+                }
+                catch
+                {
+                    var errMsg = String.Format(
+                        "PageObjectBase: There is no option '{0}' in {1}.",
+                        optionText, by);
+                    throw new Exception(errMsg);
+                }
+            }
+            else
+            {
+                string errMsg = "Cannot find element " + by.ToString();
+                throw new NoSuchElementException(errMsg);
+            }
+        }
+
+        protected void SendKeys(By by, string textToSend)
+        {
+            Find(by).SendKeys(textToSend);
+        }
+
         protected void WaitForElementToBeDeleted(By by, int timeout = 20000)
         {
             var _stopwatch = new Stopwatch();

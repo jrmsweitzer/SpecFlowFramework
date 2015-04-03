@@ -50,6 +50,32 @@ namespace SpecFlowFramework.Steps
             Click(by);
         }
 
+        [When(@"I fill out the user form")]
+        public void IFillOutTheUserForm()
+        {
+            By email = ExcelReader.GetByForLabel("Email");
+            By firstName = ExcelReader.GetByForLabel("First name");
+            By lastName = ExcelReader.GetByForLabel("Last name");
+            By address = ExcelReader.GetByForLabel("Address");
+            By city = ExcelReader.GetByForLabel("City");
+            By state = ExcelReader.GetByForLabel("State");
+            By country = ExcelReader.GetByForLabel("Country");
+            By phone = ExcelReader.GetByForLabel("Phone");
+            By billingRadio = ExcelReader.GetByForLabel("Same As Billing Radio");
+
+
+            SendKeys(email, "test@email.com");
+            SendKeys(firstName, "Test");
+            SendKeys(lastName, "User");
+            SendKeys(address, "123 Fake Street");
+            SendKeys(city, "Fakesville");
+            SendKeys(state, "Alabama");
+            Select(country, "USA");
+            SendKeys(phone, "1234567890");
+            Click(billingRadio);
+            
+        }
+
         [Then(@"My cart should have a total of (.*)")]
         public void MyCartShouldHaveATotalOf(int expectedTotal)
         {

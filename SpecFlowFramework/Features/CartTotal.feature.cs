@@ -65,16 +65,24 @@ namespace SpecFlowFramework.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line 7
+ testRunner.Given("I am at url \"http://store.demoqa.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Empty Cart")]
         public virtual void EmptyCart()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Empty Cart", ((string[])(null)));
-#line 6
+#line 9
 this.ScenarioSetup(scenarioInfo);
-#line 7
- testRunner.Given("I am at url \"http://store.demoqa.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
+#line 6
+this.FeatureBackground();
+#line 10
  testRunner.Then("My cart should have a total of 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -85,17 +93,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void AddAnItem()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add an item", ((string[])(null)));
-#line 10
-this.ScenarioSetup(scenarioInfo);
-#line 11
- testRunner.Given("I am at url \"http://store.demoqa.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
- testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
- testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 14
- testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
+ testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
  testRunner.Then("My cart should have a total of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -106,21 +114,21 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void AddSameItemTwiceSeparately()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add same item twice, separately", ((string[])(null)));
-#line 17
-this.ScenarioSetup(scenarioInfo);
-#line 18
- testRunner.Given("I am at url \"http://store.demoqa.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 19
- testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 20
- testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 21
- testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
  testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
  testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
+ testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+ testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
  testRunner.Then("My cart should have a total of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -131,25 +139,25 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void AddTwoSeparateItems()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two separate items", ((string[])(null)));
-#line 26
-this.ScenarioSetup(scenarioInfo);
-#line 27
- testRunner.Given("I am at url \"http://store.demoqa.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
- testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 29
- testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 30
- testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 31
- testRunner.And("I click link with exact text \"Home\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 32
- testRunner.And("I click link with exact text \"Buy Now\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 33
  testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
+#line 32
  testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.And("I click link with exact text \"Home\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.And("I click link with exact text \"Buy Now\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
+ testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+ testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
  testRunner.Then("My cart should have a total of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -160,42 +168,103 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void VariableTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Variable test", ((string[])(null)));
-#line 37
-this.ScenarioSetup(scenarioInfo);
-#line 38
- testRunner.Given("I am at url \"http://store.demoqa.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 39
- testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 40
- testRunner.And("I store text of Product Title into variable Product 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 41
- testRunner.Then("Variable Product 1 should be \"iPhone 5\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 42
- testRunner.When("I store text of Product Price into variable Product 1 Price", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 43
- testRunner.Then("Variable Product 1 Price should be \"$12.00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I store text of Product Title into Product 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 44
- testRunner.When("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("Variable Product 1 should be \"iPhone 5\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 45
- testRunner.And("I Go To Checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I store text of Product Price into Product 1 Price", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 46
- testRunner.Then("Variable Product 1 should exist in Table Product Checkout Table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 47
- testRunner.When("I store row number containing variable Product 1 from Table Product Checkout Tabl" +
-                    "e into variable Product 1 Row", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("Variable Product 1 Price should be \"$12.00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 48
+ testRunner.When("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 49
+ testRunner.And("I Go To Checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+ testRunner.Then("Product 1 should exist in Table Product Checkout Table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 52
+ testRunner.When("I store row number containing Product 1 from Table Product Checkout Table into Pr" +
+                    "oduct 1 Row", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 53
  testRunner.Then("The text of Table Product Checkout Table Row Product 1 Row Column 4 should be Pro" +
                     "duct 1 Price", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 49
+#line 55
  testRunner.When("I continue checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 50
- testRunner.And("I input \"testaccountcatalyst\" into Store username", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 51
- testRunner.And("I input \"Password13\" into Store password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 52
- testRunner.And("I click on Store login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 53
+#line 56
  testRunner.Then("Text of Item Cost should be Product 1 Price", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 57
+ testRunner.When("I fill out the user form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 58
+ testRunner.And("I click on Purchase", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
+ testRunner.Then("Table Purchase Results Table should have 1 rows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 61
+ testRunner.And("Product 1 should exist in Table Purchase Results Table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
+ testRunner.And("The text of Table Purchase Results Table Row 1 Column 2 should be Product 1 Price" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Search For Product")]
+        public virtual void SearchForProduct()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search For Product", ((string[])(null)));
+#line 65
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 66
+ testRunner.When("I input \"Apple TV\" into Search Bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 67
+ testRunner.And("Submit Search Bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+ testRunner.Then("Text of Prod Title should be Apple TV", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 70
+ testRunner.And("Text of Current Price should be $80.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+ testRunner.When("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
+ testRunner.And("I Go To Checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 75
+ testRunner.Then("Apple TV should exist in Table Product Checkout Table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 76
+ testRunner.And("The text of Table Product Checkout Table Row 2 Column 4 should be $80.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+ testRunner.When("I continue checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 79
+ testRunner.Then("Text of Item Cost should be $80.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 80
+ testRunner.When("I fill out the user form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 81
+ testRunner.And("I click on Purchase", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
+ testRunner.Then("Table Purchase Results Table should have 1 rows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 84
+ testRunner.And("Apple TV should exist in Table Purchase Results Table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 85
+ testRunner.And("The text of Table Purchase Results Table Row 1 Column 2 should be $80.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Remove an item from the cart")]
+        public virtual void RemoveAnItemFromTheCart()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Remove an item from the cart", ((string[])(null)));
+#line 88
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
