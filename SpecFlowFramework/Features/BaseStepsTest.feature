@@ -2,7 +2,8 @@
 	In order to avoid silly mistakes
 	As a tester
 	I want to be able to create simple, dynamic tests.
-
+	
+@basestep
 Scenario: Select an option in Heroku
 	Given I am at url "http://the-internet.herokuapp.com/"
 	When I click link with exact text "Dropdown"
@@ -14,6 +15,7 @@ Scenario: Select an option in Heroku
 	When I select option "Option 1" from Heroku Dropdown
 	Then Heroku Dropdown should have "Option 1" selected
 
+@basestep
 Scenario: Check a checkbox in Heroku
 	Given I am at url "http://the-internet.herokuapp.com/"
 	When I click link with exact text "Checkboxes"
@@ -25,15 +27,18 @@ Scenario: Check a checkbox in Heroku
 	When I click on Unchecked Checkbox
 	Then Unchecked Checkbox should be checked
 
+@basestep
 Scenario: Click a link containing text
 	Given I am at url "http://the-internet.herokuapp.com/"
 	When I click link containing text "Shifting"
 	Then My url should match "http://the-internet.herokuapp.com/shifting_content"
 
+@basestep
 Scenario: There should be no broken images
 	Given I am at url "http://the-internet.herokuapp.com/broken_images"
 	Then I should have no broken images
 
+@basestep
 Scenario: ByFormatter Test 1
 	Given I am at url "http://the-internet.herokuapp.com/challenging_dom"
 	Then The text in table Table 1 in row 1 column 1 should be "Iuvaret0"
@@ -42,6 +47,7 @@ Scenario: ByFormatter Test 1
 	And Table Table 1 should have 10 rows
 	And Table Table 1 should have 7 columns
 
+@basestep
 Scenario: ByFormatter Test 2
 	Given I am at url "http://the-internet.herokuapp.com/large"
 	Then Table Table 2 should have 50 rows

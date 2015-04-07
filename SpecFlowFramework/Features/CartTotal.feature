@@ -6,17 +6,20 @@
 Background: 
 	Given I am at url "http://store.demoqa.com/"
 
+@ecommerce
 Scenario: Empty Cart
 	Then My cart should have a total of 0
 
-
+	
+@ecommerce
 Scenario: Add an item
 	When I click link with exact text "All Product"
 	And I Add To Cart
 	And I Continue Shopping
 	Then My cart should have a total of 1
 
-
+	
+@ecommerce
 Scenario: Add same item twice, separately
 	When I click link with exact text "All Product"
 	And I Add To Cart
@@ -25,7 +28,8 @@ Scenario: Add same item twice, separately
 	And I Continue Shopping
 	Then My cart should have a total of 2
 
-
+	
+@ecommerce
 Scenario: Add two separate items
 	When I click link with exact text "All Product"
 	And I Add To Cart
@@ -36,7 +40,8 @@ Scenario: Add two separate items
 	And I Continue Shopping
 	Then My cart should have a total of 2
 
-
+	
+@ecommerce
 Scenario: Variable test
 	When I click link with exact text "All Product"
 
@@ -62,6 +67,7 @@ Scenario: Variable test
 	And The text of Table Purchase Results Table Row 1 Column 2 should be Product 1 Price
 
 	# This is a comment
+@ecommerce
 Scenario: Search For Product
 	When I input "Apple TV" into Search Bar
 	And Submit Search Bar
@@ -84,5 +90,12 @@ Scenario: Search For Product
 	And Apple TV should exist in Table Purchase Results Table
 	And The text of Table Purchase Results Table Row 1 Column 2 should be $80.00
 
-
-Scenario: Remove an item from the cart
+@ecommerce
+Scenario: Remove Product from cart
+	When I click link with exact text "All Product"
+	And I Add To Cart
+	And I Continue Shopping
+	And I Add To Cart
+	And I Go To Checkout
+	Then My cart should have a total of 2
+	And The quantity for Row 1 should be 2

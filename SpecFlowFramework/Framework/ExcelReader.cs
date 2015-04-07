@@ -38,6 +38,34 @@ namespace SpecFlowFramework.Framework
             return null;
         }
 
+        public static ByFormatter GetByFormatterForLabel(string locatorLabel)
+        {
+            if (!Locators.ContainsKey(locatorLabel.ToLower()))
+            {
+                Assert.Fail("Label {0} not defined!", locatorLabel);
+            }
+
+            var locator = Locators[locatorLabel.ToLower()];
+
+            switch (locator.LocatorType.ToLower())
+            {
+                case "id":
+                    return ByFormatter.Id(locator.LocatorString);
+                case "class":
+                case "classname":
+                case "class_name":
+                    return ByFormatter.ClassName(locator.LocatorString);
+                case "name":
+                    return ByFormatter.Name(locator.LocatorString);
+                case "tagname":
+                    return ByFormatter.TagName(locator.LocatorString);
+                case "xpath":
+                    return ByFormatter.XPath(locator.LocatorString);
+            }
+
+            return null;
+        }
+
         public static void Init()
         {
             Locators = new Dictionary<string, Locator>();

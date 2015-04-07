@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using SpecFlowFramework.Framework;
 using TechTalk.SpecFlow;
 
-namespace SpecFlowFramework.Steps
+namespace SpecFlowFramework.StepDefinitions
 {
     [Binding]
     public class HerokuLoginSteps : ScenarioRunner

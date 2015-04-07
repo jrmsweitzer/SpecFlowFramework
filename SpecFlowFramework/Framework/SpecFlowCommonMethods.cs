@@ -1,18 +1,31 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TechTalk.SpecFlow;
 
 namespace SpecFlowFramework.Framework
 {
-    public class SpecFlowCommonMethods
+    public class SpecFlowCommonMethods : Steps
     {
         public static IWebDriver Driver;
         private IWait<IWebDriver> wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
+        private long defaultTimeout = 20000;
 
         protected IWebElement Find(By by)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            while (FindAll(by).Count == 0)
+            {
+                if (stopwatch.ElapsedMilliseconds >= defaultTimeout)
+                {
+                    Assert.Fail(string.Format("Could not find element {0} after {1} milliseconds.",
+                        by.ToString(), defaultTimeout));
+                }
+            }
             return Driver.FindElement(by);
         }
 

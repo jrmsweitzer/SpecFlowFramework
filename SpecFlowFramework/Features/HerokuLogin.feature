@@ -3,6 +3,7 @@
 	As a user
 	I want the login page to work as expected.
 
+@Login
 Scenario: Valid credentials should log in successfully
 	Given I am at url "http://the-internet.herokuapp.com/login"
 	When I input "tomsmith" into Login Username
@@ -10,6 +11,7 @@ Scenario: Valid credentials should log in successfully
 	And I click on Login Button
 	Then I should log in successfully
 
+@Login
 Scenario: Incorrect username should fail login
 	Given I am at url "http://the-internet.herokuapp.com/login"
 	When I input "Invalid Username" into Login Username
@@ -17,7 +19,9 @@ Scenario: Incorrect username should fail login
 	Then I should not log in successfully
 	And There should be an error message on the screen
 	And The error message should say "Your username is invalid!"
-
+	
+@Login
+@failtest
 Scenario: Incorrect password should fail login
 	Given I am at url "http://the-internet.herokuapp.com/login"
 	When I input "tomsmith" into Login Username
@@ -26,7 +30,8 @@ Scenario: Incorrect password should fail login
 	Then I should not log in successfully
 	And There should be an error message on the screen
 	And The error message should say "Your password is invalid!"
-
+	
+@Login
 Scenario: Skipping login page should fail login
 	Given I am at url "http://the-internet.herokuapp.com/login"
 	When I try to go directly to the secure area

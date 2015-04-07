@@ -17,6 +17,13 @@ namespace SpecFlowFramework.Framework
         public void IAmAtUrl(string url)
         {
             Driver.Navigate().GoToUrl(url);
+            Given("Test Method");
+        }
+
+        [Given("Test Method")]
+        public void TestMethod()
+        {
+            Console.WriteLine("Testing Calling Steps from Steps.");
         }
 
         [When(@"I input ""(.*)"" into (.*)")]
@@ -149,8 +156,6 @@ namespace SpecFlowFramework.Framework
             {
                 expectedValue = ScenarioContext.Current[expectedValue].ToString();
             }
-
-            Thread.Sleep(3000);
 
             var actualValue = GetInnerHtml(by);
 

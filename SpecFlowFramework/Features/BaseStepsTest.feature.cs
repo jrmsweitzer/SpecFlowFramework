@@ -18,8 +18,8 @@ namespace SpecFlowFramework.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("ScenarioRunner")]
+    [TechTalk.SpecRun.FeatureAttribute("ScenarioRunner", Description="In order to avoid silly mistakes\nAs a tester\nI want to be able to create simple, " +
+        "dynamic tests.", SourceFile="Features\\BaseStepsTest.feature", SourceLine=0)]
     public partial class ScenarioRunnerFeature
     {
         
@@ -28,7 +28,7 @@ namespace SpecFlowFramework.Features
 #line 1 "BaseStepsTest.feature"
 #line hidden
         
-        [NUnit.Framework.TestFixtureSetUpAttribute()]
+        [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
@@ -37,19 +37,18 @@ namespace SpecFlowFramework.Features
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.TestFixtureTearDownAttribute()]
+        [TechTalk.SpecRun.FeatureCleanup()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
+        [TechTalk.SpecRun.ScenarioCleanup()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -65,142 +64,154 @@ namespace SpecFlowFramework.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Select an option in Heroku")]
+        [TechTalk.SpecRun.ScenarioAttribute("Select an option in Heroku", new string[] {
+                "basestep"}, SourceLine=6)]
         public virtual void SelectAnOptionInHeroku()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select an option in Heroku", ((string[])(null)));
-#line 6
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select an option in Heroku", new string[] {
+                        "basestep"});
 #line 7
- testRunner.Given("I am at url \"http://the-internet.herokuapp.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.When("I click link with exact text \"Dropdown\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I am at url \"http://the-internet.herokuapp.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.Then("My url should match \"http://the-internet.herokuapp.com/dropdown\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click link with exact text \"Dropdown\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.When("I select option \"Option 1\" from Heroku Dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("My url should match \"http://the-internet.herokuapp.com/dropdown\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
- testRunner.Then("Heroku Dropdown should have \"Option 1\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 12
- testRunner.When("I select option \"Option 2\" from Heroku Dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
- testRunner.Then("Heroku Dropdown should have \"Option 2\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 14
  testRunner.When("I select option \"Option 1\" from Heroku Dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+ testRunner.Then("Heroku Dropdown should have \"Option 1\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 13
+ testRunner.When("I select option \"Option 2\" from Heroku Dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+ testRunner.Then("Heroku Dropdown should have \"Option 2\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 15
+ testRunner.When("I select option \"Option 1\" from Heroku Dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
  testRunner.Then("Heroku Dropdown should have \"Option 1\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check a checkbox in Heroku")]
+        [TechTalk.SpecRun.ScenarioAttribute("Check a checkbox in Heroku", new string[] {
+                "basestep"}, SourceLine=18)]
         public virtual void CheckACheckboxInHeroku()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check a checkbox in Heroku", ((string[])(null)));
-#line 17
-this.ScenarioSetup(scenarioInfo);
-#line 18
- testRunner.Given("I am at url \"http://the-internet.herokuapp.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check a checkbox in Heroku", new string[] {
+                        "basestep"});
 #line 19
- testRunner.When("I click link with exact text \"Checkboxes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 20
- testRunner.Then("My url should match \"http://the-internet.herokuapp.com/checkboxes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I am at url \"http://the-internet.herokuapp.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 21
- testRunner.When("I click on Unchecked Checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click link with exact text \"Checkboxes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
- testRunner.Then("Unchecked Checkbox should be checked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("My url should match \"http://the-internet.herokuapp.com/checkboxes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 23
  testRunner.When("I click on Unchecked Checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 24
- testRunner.Then("Unchecked Checkbox should be unchecked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Unchecked Checkbox should be checked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 25
  testRunner.When("I click on Unchecked Checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
+ testRunner.Then("Unchecked Checkbox should be unchecked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 27
+ testRunner.When("I click on Unchecked Checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
  testRunner.Then("Unchecked Checkbox should be checked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Click a link containing text")]
+        [TechTalk.SpecRun.ScenarioAttribute("Click a link containing text", new string[] {
+                "basestep"}, SourceLine=30)]
         public virtual void ClickALinkContainingText()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click a link containing text", ((string[])(null)));
-#line 28
-this.ScenarioSetup(scenarioInfo);
-#line 29
- testRunner.Given("I am at url \"http://the-internet.herokuapp.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 30
- testRunner.When("I click link containing text \"Shifting\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click a link containing text", new string[] {
+                        "basestep"});
 #line 31
+this.ScenarioSetup(scenarioInfo);
+#line 32
+ testRunner.Given("I am at url \"http://the-internet.herokuapp.com/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+ testRunner.When("I click link containing text \"Shifting\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
  testRunner.Then("My url should match \"http://the-internet.herokuapp.com/shifting_content\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("There should be no broken images")]
+        [TechTalk.SpecRun.ScenarioAttribute("There should be no broken images", new string[] {
+                "basestep"}, SourceLine=36)]
         public virtual void ThereShouldBeNoBrokenImages()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There should be no broken images", ((string[])(null)));
-#line 33
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There should be no broken images", new string[] {
+                        "basestep"});
+#line 37
 this.ScenarioSetup(scenarioInfo);
-#line 34
+#line 38
  testRunner.Given("I am at url \"http://the-internet.herokuapp.com/broken_images\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 35
+#line 39
  testRunner.Then("I should have no broken images", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("ByFormatter Test 1")]
+        [TechTalk.SpecRun.ScenarioAttribute("ByFormatter Test 1", new string[] {
+                "basestep"}, SourceLine=41)]
         public virtual void ByFormatterTest1()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ByFormatter Test 1", ((string[])(null)));
-#line 37
-this.ScenarioSetup(scenarioInfo);
-#line 38
- testRunner.Given("I am at url \"http://the-internet.herokuapp.com/challenging_dom\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 39
- testRunner.Then("The text in table Table 1 in row 1 column 1 should be \"Iuvaret0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 40
- testRunner.And("The text in table Table 1 in row 4 column 5 should be \"Consequuntur3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
- testRunner.And("The text in table Table 1 in row 7 column 3 should be \"Adipisci6\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ByFormatter Test 1", new string[] {
+                        "basestep"});
 #line 42
- testRunner.And("Table Table 1 should have 10 rows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 43
+ testRunner.Given("I am at url \"http://the-internet.herokuapp.com/challenging_dom\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 44
+ testRunner.Then("The text in table Table 1 in row 1 column 1 should be \"Iuvaret0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 45
+ testRunner.And("The text in table Table 1 in row 4 column 5 should be \"Consequuntur3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
+ testRunner.And("The text in table Table 1 in row 7 column 3 should be \"Adipisci6\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+ testRunner.And("Table Table 1 should have 10 rows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
  testRunner.And("Table Table 1 should have 7 columns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("ByFormatter Test 2")]
+        [TechTalk.SpecRun.ScenarioAttribute("ByFormatter Test 2", new string[] {
+                "basestep"}, SourceLine=50)]
         public virtual void ByFormatterTest2()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ByFormatter Test 2", ((string[])(null)));
-#line 45
-this.ScenarioSetup(scenarioInfo);
-#line 46
- testRunner.Given("I am at url \"http://the-internet.herokuapp.com/large\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 47
- testRunner.Then("Table Table 2 should have 50 rows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 48
- testRunner.And("Table Table 2 should have 50 columns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 49
- testRunner.And("The text in table Table 2 in row 27 column 38 should be \"27.38\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 50
- testRunner.And("The text in table Table 2 in row 13 column 29 should be \"13.29\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ByFormatter Test 2", new string[] {
+                        "basestep"});
 #line 51
- testRunner.And("The text in table Table 2 in row 14 column 15 should be \"14.15\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 52
+ testRunner.Given("I am at url \"http://the-internet.herokuapp.com/large\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 53
+ testRunner.Then("Table Table 2 should have 50 rows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 54
+ testRunner.And("Table Table 2 should have 50 columns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+ testRunner.And("The text in table Table 2 in row 27 column 38 should be \"27.38\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+ testRunner.And("The text in table Table 2 in row 13 column 29 should be \"13.29\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.And("The text in table Table 2 in row 14 column 15 should be \"14.15\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
  testRunner.And("The text in table Table 2 in row 45 column 5 should be \"45.5\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.TestRunCleanup()]
+        public virtual void TestRunCleanup()
+        {
+TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         }
     }
 }

@@ -5,7 +5,7 @@ using System;
 using System.Threading;
 using TechTalk.SpecFlow;
 
-namespace SpecFlowFramework.Steps
+namespace SpecFlowFramework.StepDefinitions
 {
     [Binding]
     public class CartTotalSteps : ScenarioRunner
@@ -28,8 +28,6 @@ namespace SpecFlowFramework.Steps
 
             By notificationBox = ExcelReader.GetByForLabel("Notification Box");
             WaitForElementToBeDeleted(notificationBox);
-
-            Thread.Sleep(3000);
         }
 
         [When(@"I Go To Checkout")]
@@ -81,14 +79,25 @@ namespace SpecFlowFramework.Steps
         {
             By by = ExcelReader.GetByForLabel("Cart Total");
 
-            var actualTotal = Int32.Parse(Find(by).Text);
+            var actualTotal = Int32.Parse(GetText(by));
 
             if (actualTotal != expectedTotal)
             {
-                actualTotal = Int32.Parse(Find(by).Text);
+                actualTotal = Int32.Parse(GetText(by));
             }
 
             Assert.AreEqual(expectedTotal, actualTotal);
+        }
+
+        [Then(@"The quantity for Row (.*) should be (.*)")]
+        public void TheQuantityForRowShouldBe(int rowNum, int expectedQuantity)
+        {
+            By by = ExcelReader.GetByFormatterForLabel("Quantity By Row").Format(rowNum);
+
+            var actualQuantity = Int32.Parse(Find(by).GetAttribute("value"));
+
+            Assert.AreEqual(expectedQuantity, actualQuantity);
+
         }
     }
 }
