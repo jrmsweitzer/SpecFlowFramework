@@ -66,29 +66,33 @@ Scenario: Variable test
 	And Product 1 should exist in Table Purchase Results Table
 	And The text of Table Purchase Results Table Row 1 Column 2 should be Product 1 Price
 
-	# This is a comment
+# This is a comment
 @ecommerce
-Scenario: Search For Product
-	When I input "Apple TV" into Search Bar
+Scenario Outline: Search For Product
+	When I input "<product>" into Search Bar
 	And Submit Search Bar
 
-	Then Text of Prod Title should be Apple TV
-	And Text of Current Price should be $80.00
+	Then Text of Prod Title should be <product>
+	And Text of Current Price should be <price>
 
 	When I Add To Cart
 	And I Go To Checkout
 
-	Then Apple TV should exist in Table Product Checkout Table
-	And The text of Table Product Checkout Table Row 2 Column 4 should be $80.00
+	Then <product> should exist in Table Product Checkout Table
+	And The text of Table Product Checkout Table Row 2 Column 4 should be <price>
 
 	When I continue checkout
-	Then Text of Item Cost should be $80.00
+	Then Text of Item Cost should be <price>
 	When I fill out the user form
 	And I click on Purchase
 
 	Then Table Purchase Results Table should have 1 rows
-	And Apple TV should exist in Table Purchase Results Table
-	And The text of Table Purchase Results Table Row 1 Column 2 should be $80.00
+	And <product> should exist in Table Purchase Results Table
+	And The text of Table Purchase Results Table Row 1 Column 2 should be <price>
+
+@source:../Outlines/DemoQAOutlines.xlsx
+Examples:
+	| case | product | price |
 
 @ecommerce
 Scenario: Remove Product from cart

@@ -134,7 +134,10 @@
     <None Include="Locators\DemoQA.xlsx" />
     <None Include="Locators\Heroku.xlsx" />
     <None Include="Locators\YouTube.xlsx" />
-    <None Include="packages.config" />
+    <None Include="Outlines\DemoQAOutlines.xlsx" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="runtests.cmd" />
     <None Include="SpecRunTestProfile.xsd">
       <SubType>Designer</SubType>
@@ -161,6 +164,7 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\SpecFlow.Plus.Excel.1.2.0\tools\TechTalk.SpecFlow-buildfix.targets" Condition="Exists('..\packages\SpecFlow.Plus.Excel.1.2.0\tools\TechTalk.SpecFlow-buildfix.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

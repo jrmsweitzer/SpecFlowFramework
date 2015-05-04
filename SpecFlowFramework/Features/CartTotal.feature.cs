@@ -217,36 +217,39 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Search For Product", new string[] {
-                "ecommerce"}, SourceLine=70)]
-        public virtual void SearchForProduct()
+        public virtual void SearchForProduct(string @case, string product, string price, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search For Product", new string[] {
-                        "ecommerce"});
+            string[] @__tags = new string[] {
+                    "ecommerce"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search For Product", @__tags);
 #line 71
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line 72
- testRunner.When("I input \"Apple TV\" into Search Bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I input \"{0}\" into Search Bar", product), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 73
  testRunner.And("Submit Search Bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 75
- testRunner.Then("Text of Prod Title should be Apple TV", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("Text of Prod Title should be {0}", product), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 76
- testRunner.And("Text of Current Price should be $80.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("Text of Current Price should be {0}", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 78
  testRunner.When("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 79
  testRunner.And("I Go To Checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 81
- testRunner.Then("Apple TV should exist in Table Product Checkout Table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("{0} should exist in Table Product Checkout Table", product), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 82
- testRunner.And("The text of Table Product Checkout Table Row 2 Column 4 should be $80.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The text of Table Product Checkout Table Row 2 Column 4 should be {0}", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 84
  testRunner.When("I continue checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 85
- testRunner.Then("Text of Item Cost should be $80.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("Text of Item Cost should be {0}", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 86
  testRunner.When("I fill out the user form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 87
@@ -254,36 +257,108 @@ this.FeatureBackground();
 #line 89
  testRunner.Then("Table Purchase Results Table should have 1 rows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 90
- testRunner.And("Apple TV should exist in Table Purchase Results Table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("{0} should exist in Table Purchase Results Table", product), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 91
- testRunner.And("The text of Table Purchase Results Table Row 1 Column 2 should be $80.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The text of Table Purchase Results Table Row 1 Column 2 should be {0}", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("Search For Product, apple TV", new string[] {
+                "ecommerce",
+                "source:../Outlines/DemoQAOutlines.xlsx"})]
+        public virtual void SearchForProduct_AppleTV()
+        {
+            this.SearchForProduct("apple TV", "Apple TV", "$80.00", new string[] {
+                        "source:../Outlines/DemoQAOutlines.xlsx"});
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search For Product, mouse", new string[] {
+                "ecommerce",
+                "source:../Outlines/DemoQAOutlines.xlsx"})]
+        public virtual void SearchForProduct_Mouse()
+        {
+            this.SearchForProduct("mouse", "Magic Mouse", "$150.00", new string[] {
+                        "source:../Outlines/DemoQAOutlines.xlsx"});
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search For Product, ipod", new string[] {
+                "ecommerce",
+                "source:../Outlines/DemoQAOutlines.xlsx"})]
+        public virtual void SearchForProduct_Ipod()
+        {
+            this.SearchForProduct("ipod", "iPod Nano Blue", "$0.00", new string[] {
+                        "source:../Outlines/DemoQAOutlines.xlsx"});
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search For Product, headphones", new string[] {
+                "ecommerce",
+                "source:../Outlines/DemoQAOutlines.xlsx"})]
+        public virtual void SearchForProduct_Headphones()
+        {
+            this.SearchForProduct("headphones", "Sennheiser RS 120", "$50.00", new string[] {
+                        "source:../Outlines/DemoQAOutlines.xlsx"});
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search For Product, Apple 27\" TV", new string[] {
+                "ecommerce",
+                "source:../Outlines/DemoQAOutlines.xlsx"})]
+        public virtual void SearchForProduct_Apple27TV()
+        {
+            this.SearchForProduct("Apple 27\" TV", "Apple 27 inch Thunderbolt Display", "$764.00", new string[] {
+                        "source:../Outlines/DemoQAOutlines.xlsx"});
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search For Product, Asus 23\" TV", new string[] {
+                "ecommerce",
+                "source:../Outlines/DemoQAOutlines.xlsx"})]
+        public virtual void SearchForProduct_Asus23TV()
+        {
+            this.SearchForProduct("Asus 23\" TV", "Asus MX239H 23-inch Widescreen AH", "$199.00", new string[] {
+                        "source:../Outlines/DemoQAOutlines.xlsx"});
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search For Product, Large iPod", new string[] {
+                "ecommerce",
+                "source:../Outlines/DemoQAOutlines.xlsx"})]
+        public virtual void SearchForProduct_LargeIPod()
+        {
+            this.SearchForProduct("Large iPod", "Apple iPod touch Large", "$10.00", new string[] {
+                        "source:../Outlines/DemoQAOutlines.xlsx"});
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search For Product, MacBook", new string[] {
+                "ecommerce",
+                "source:../Outlines/DemoQAOutlines.xlsx"})]
+        public virtual void SearchForProduct_MacBook()
+        {
+            this.SearchForProduct("MacBook", "Apple 13-inch MacBook Pro", "$864.00", new string[] {
+                        "source:../Outlines/DemoQAOutlines.xlsx"});
+        }
+        
         [TechTalk.SpecRun.ScenarioAttribute("Remove Product from cart", new string[] {
-                "ecommerce"}, SourceLine=93)]
+                "ecommerce"}, SourceLine=97)]
         public virtual void RemoveProductFromCart()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Remove Product from cart", new string[] {
                         "ecommerce"});
-#line 94
+#line 98
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 95
- testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 96
- testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
- testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 98
- testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 99
- testRunner.And("I Go To Checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click link with exact text \"All Product\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 100
- testRunner.Then("My cart should have a total of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 101
+ testRunner.And("I Continue Shopping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 102
+ testRunner.And("I Add To Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 103
+ testRunner.And("I Go To Checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 104
+ testRunner.Then("My cart should have a total of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 105
  testRunner.And("The quantity for Row 1 should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
